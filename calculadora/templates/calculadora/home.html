@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora IMC</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'calculadora/style.css' %}">
+</head>
+<body>
+
+    <!-- Caixa de explicação do IMC -->
+    <div class="info-box">
+        <h2>O que é o IMC?</h2>
+        <p>O Índice de Massa Corporal (IMC) é uma medida utilizada para avaliar se uma pessoa está dentro do peso ideal para sua altura.</p>
+        <p>Segundo a Organização Mundial da Saúde (OMS), um IMC saudável varia entre <strong>18.5 e 24.9</strong>. Valores abaixo ou acima dessa faixa podem indicar desnutrição, sobrepeso ou obesidade.</p>
+        <p>Aqui você pode encontrar mais informações sobre saúde e peso, além de encontrar profissionais da área para te ajudar: <a href="https://abeso.org.br/" target="_blank">https://abeso.org.br/</a></p>
+    </div>
+<style>
+        .info-box {
+        background-color: #e2b2ff;
+        padding: 15px;
+        border-left: 5px solid #8400ff;
+        margin-bottom: 20px;
+        border-radius: 5px;
+        
+    }
+    .result {
+            margin-top: 15px;
+            padding: 10px;
+            background-color: #e2b2ff;
+            border-left: 5px solid #8400ff;
+            border-radius: 5px;
+        }
+        .result p {
+            font-size: 18px;
+            margin: 5px 0;
+        }
+        .error {
+            color: red;
+            font-weight: bold;
+        }
+        label {
+            font-weight: bold;
+        }
+</style>
+        <!-- Formulário -->
+        <div class="main-container">
+            <h1>Calculadora de IMC</h1>
+            <form method="post">
+                {% csrf_token %}
+                <label for="peso">Peso (kg):</label>
+                <input type="text" name="peso" required>
+
+                <label for="altura">Altura:</label>
+                <input type="number" name="altura" maxlength="4" pattern="\d{2,4}" required placeholder="Ex: 1.75">
+
+                <button type="submit">Calcular IMC</button>
+            </form>
+            
+
+
+            
+            <!-- Exibição do resultado -->
+            {% if erro %}
+                <p class="error">{{ erro }}</p>
+            {% endif %}
+
+            {% if imc %}
+                <div class="result">
+                    <p><strong>IMC:</strong> {{ imc|floatformat:2 }}</p>
+                    <p><strong>Categoria:</strong> {{ categoria }}</p>
+                    <p><strong>Peso Ideal:</strong> {{ peso_ideal_min|floatformat:2 }} kg - {{ peso_ideal_max|floatformat:2 }} kg</p>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+
+</body>
+</html>

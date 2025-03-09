@@ -1,0 +1,74 @@
+/* Fundo com gradiente */
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right, #ffffff, #d9bbff);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+/* Infobox separado do formulário */
+.info-box {
+    background: rgba(255, 255, 255, 0.8);
+    /* Ajustando transparência */
+    padding: 20px;
+    border-radius: 10px;
+    width: 30%;
+    text-align: center;
+    margin-bottom: 20px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Container centralizado para o formulário */
+.main-container {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 15%;
+    text-align: center;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Campos do formulário */
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+input,
+button {
+    margin: 10px 0;
+    padding: 10px;
+    width: 80%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    background: #6c12e2;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #9873fd;
+}
+
+/* Caixa de resultado */
+.result-box {
+    background: rgba(255, 255, 255, 0.8);
+    /* Ajustando transparência */
+    padding: 15px;
+    margin-top: 20px;
+    border-radius: 10px;
+    width: 30%;
+    text-align: left;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    font-size: 18px;
+}
